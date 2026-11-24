@@ -1,0 +1,61 @@
+==== CONFIGS ====		
+{
+    "base_path": "/home/laura/DWS",
+    "out": "/home/laura/DWS/javadoc",
+    "javadoc_executable": "/usr/lib/jvm/java-25-openjdk-amd64/bin/javadoc",
+    "exclude": [
+        "Main",
+        "Pila",
+        "ListaOrdenada"
+    ],
+    "raw_params": ""
+}
+
+==== COMMAND ====
+"/usr/lib/jvm/java-25-openjdk-amd64/bin/javadoc" 
+	-sourcepath "/home/laura/DWS" 
+	-d "/home/laura/DWS/javadoc" 
+	"/home/laura/DWS/Ejercicios/src/Ejercicios/Matriz.java"
+
+
+==== JAVADOC OUTPUT ====
+Loading source file /home/laura/DWS/Ejercicios/src/Ejercicios/Matriz.java...
+Constructing Javadoc information...
+Building index for all the packages and classes...
+Standard Doclet version 25.0.4.1+1-1-24.04.4-Ubuntu
+Building tree for all the packages and classes...
+Generating /home/laura/DWS/javadoc/Ejercicios/Matriz.html...
+/home/laura/DWS/Ejercicios/src/Ejercicios/Matriz.java:12: warning: no description for @param
+ * @param filas
+   ^
+/home/laura/DWS/Ejercicios/src/Ejercicios/Matriz.java:13: warning: no description for @param
+ * @param columnas
+   ^
+/home/laura/DWS/Ejercicios/src/Ejercicios/Matriz.java:22: warning: no description for @param
+ * @param fila
+   ^
+/home/laura/DWS/Ejercicios/src/Ejercicios/Matriz.java:23: warning: no description for @param
+ * @param columna
+   ^
+/home/laura/DWS/Ejercicios/src/Ejercicios/Matriz.java:24: warning: no description for @param
+ * @param elemento
+   ^
+/home/laura/DWS/Ejercicios/src/Ejercicios/Matriz.java:35: warning: no description for @param
+ * @param fila
+   ^
+/home/laura/DWS/Ejercicios/src/Ejercicios/Matriz.java:36: warning: no description for @param
+ * @param columna
+   ^
+Generating /home/laura/DWS/javadoc/Ejercicios/package-summary.html...
+Generating /home/laura/DWS/javadoc/Ejercicios/package-tree.html...
+Generating /home/laura/DWS/javadoc/overview-tree.html...
+Generating /home/laura/DWS/javadoc/allclasses-index.html...
+Building index for all classes...
+Generating /home/laura/DWS/javadoc/allpackages-index.html...
+Generating /home/laura/DWS/javadoc/index-all.html...
+Generating /home/laura/DWS/javadoc/search.html...
+Generating /home/laura/DWS/javadoc/index.html...
+Generating /home/laura/DWS/javadoc/help-doc.html...
+7 warnings
+
+
