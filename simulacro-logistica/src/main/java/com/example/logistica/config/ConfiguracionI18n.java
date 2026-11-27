@@ -1,5 +1,7 @@
 package com.example.logistica.config;
 
+import java.util.Locale;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
@@ -14,6 +16,7 @@ public class ConfiguracionI18n implements WebMvcConfigurer {
     @Bean
     public LocaleResolver localeResolver() {
         SessionLocaleResolver resolver = new SessionLocaleResolver();
+        resolver.setDefaultLocale(Locale.forLanguageTag("es"));
         // TODO EXAMEN (Tarea 3): Establece el idioma por defecto.
         return resolver;
     }
@@ -21,6 +24,7 @@ public class ConfiguracionI18n implements WebMvcConfigurer {
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
         LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();
+        interceptor.setParamName("lang");
         // TODO EXAMEN (Tarea 3): Establece el nombre del parámetro para cambiar el idioma.
         return interceptor;
     }
@@ -28,5 +32,6 @@ public class ConfiguracionI18n implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         // TODO EXAMEN (Tarea 3): Registra el interceptor de cambio de idioma.
+        registry.addInterceptor(localeChangeInterceptor());
     }
 }

@@ -6,12 +6,31 @@
 <main class="container">
     <h1>Nueva parada</h1>
     <div class="panel">
-        <!-- TODO EXAMEN (Tarea 2): Implementar formulario de alta de parada.
-             Campos: vehiculo (select), destino (select), fechaPrevista, fechaLlegada, observaciones. -->
-        <p class="muted">TODO: Implementar el formulario de parada.</p>
-        <div class="form-actions">
-            <a class="btn secondary" th:href="@{/paradas}">Volver</a>
-        </div>
+        <form th:action="@{/paradas}" method="post" th:object="${parada}">
+            <div class="form-grid">
+                <div>
+                    <label>Vehículo</label>
+                    <select th:field="*{vehiculoId}" required>
+                        <option value="">-- Selecciona vehículo --</option>
+                        <option th:each="v : ${vehiculos}" th:value="${v.id}" th:text="${v.matricula + ' - ' + v.marca + ' ' + v.modelo}"></option>
+                    </select>
+                </div>
+                <div>
+                    <label>Destino</label>
+                    <select th:field="*{destinoId}" required>
+                        <option value="">-- Selecciona destino --</option>
+                        <option th:each="d : ${destinos}" th:value="${d.id}" th:text="${d.nombre + ' (' + d.ciudad + ')'}"></option>
+                    </select>
+                </div>
+                <div><label>Fecha prevista</label><input type="date" th:field="*{fechaPrevista}" required></div>
+                <div><label>Fecha llegada</label><input type="date" th:field="*{fechaLlegada}"></div>
+                <div><label>Observaciones</label><input type="text" th:field="*{observaciones}"></div>
+            </div>
+            <div class="form-actions">
+                <button class="btn" type="submit">Guardar</button>
+                <a class="btn secondary" th:href="@{/paradas}">Cancelar</a>
+            </div>
+        </form>
     </div>
 </main>
 </body>

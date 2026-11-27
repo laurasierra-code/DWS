@@ -5,8 +5,8 @@
 <nav th:replace="~{fragments :: nav}"></nav>
 <main class="container">
     <section class="hero">
-        <h1>Bienvenido a Logística</h1>
-        <p>Gestiona vehículos, conductores, destinos y paradas desde una única aplicación.</p>
+        <h1 th:text="#{inicio.titulo}">Bienvenido a Logística</h1>
+        <p th:text="#{inicio.subtitulo}">Gestiona vehículos, conductores, destinos y paradas desde una única aplicación.</p>
     </section>
     <section class="cards">
         <a class="card" th:href="@{/vehiculos}"><h2>Vehículos</h2><p>Consulta y gestiona la flota de vehículos y sus destinos.</p></a>

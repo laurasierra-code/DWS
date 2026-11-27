@@ -21,7 +21,7 @@ public class ParadaDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    // TODO EXAMEN (Tarea 2): Completa el RowMapper si necesitas ajustar algún campo.
+    // TOD EXAMEN (Tarea 2): Completa el RowMapper si necesitas ajustar algún campo.
     private final RowMapper<ParadaDTO> dtoMapper = (rs, rowNum) -> {
         ParadaDTO dto = new ParadaDTO();
         dto.setId(rs.getInt("id"));
@@ -41,7 +41,7 @@ public class ParadaDao {
         return date != null ? date.toLocalDate() : null;
     }
 
-    // TODO EXAMEN (Tarea 2): Revisa/completa la consulta SQL con JOIN para resolver nombres.
+    // TOD EXAMEN (Tarea 2): Revisa/completa la consulta SQL con JOIN para resolver nombres.
     private static final String BASE_SELECT =
             "SELECT p.id, p.vehiculo_id, p.destino_id, p.fecha_prevista, p.fecha_llegada, p.observaciones, " +
             "v.matricula AS vehiculo_matricula, CONCAT(v.marca, ' ', v.modelo) AS vehiculo_descripcion, " +
@@ -51,17 +51,21 @@ public class ParadaDao {
             "JOIN destino d ON p.destino_id = d.id ";
 
     public List<ParadaDTO> findAll() {
-        // TODO EXAMEN (Tarea 2): Usa BASE_SELECT, dtoMapper y añade el ORDER BY adecuado.
+        // TOD EXAMEN (Tarea 2): Usa BASE_SELECT, dtoMapper y añade el ORDER BY adecuado.
         return jdbcTemplate.query(BASE_SELECT+ "ORDER BY p.fecha_prevista, p.id", dtoMapper);
     }
 
     public Optional<ParadaDTO> findById(int id) {
-        // TODO EXAMEN (Tarea 2): Usa BASE_SELECT, dtoMapper y filtra por id.
+        // TOD EXAMEN (Tarea 2): Usa BASE_SELECT, dtoMapper y filtra por id.
         List<ParadaDTO> list = jdbcTemplate.query(BASE_SELECT + "WHERE p.id = ?", dtoMapper,id);
         return list.stream().findFirst();
     }
 
     public void insert(Parada parada) {
-        // TODO EXAMEN (Tarea 2): Implementa el INSERT en la tabla parada.
+        // TOD EXAMEN (Tarea 2): Implementa el INSERT en la tabla parada.
+        jdbcTemplate.update(
+        "INSERT INTO parada (vehiculo_id, destino_id, fecha_prevista, fecha_llegada, observaciones) VALUES (?, ?, ?, ?, ?)",
+        parada.getVehiculoId(), parada.getDestinoId(), parada.getFechaPrevista(), parada.getFechaLlegada(), parada.getObservaciones()
+);
     }
 }

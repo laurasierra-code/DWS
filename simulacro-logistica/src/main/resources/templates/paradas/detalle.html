@@ -14,8 +14,17 @@
     <!-- TODO EXAMEN (Tarea 2): Mostrar la información del DTO de parada mediante Thymeleaf.
          Campos del DTO a exponer: id, vehiculoId, vehiculoMatricula, vehiculoDescripcion,
          destinoId, destinoNombre, destinoCiudad, fechaPrevista, fechaLlegada, observaciones. -->
-    <div class="panel">
-        <p class="muted">TODO: Implementar el detalle de parada.</p>
+    <div class="panel detail-grid">
+        <div class="detail-item"><strong>ID</strong><div th:text="${parada.id}"></div></div>
+        <div class="detail-item"><strong>ID Vehículo</strong><div th:text="${parada.vehiculoId}"></div></div>
+        <div class="detail-item"><strong>Matrícula</strong><div th:text="${parada.vehiculoMatricula}"></div></div>
+        <div class="detail-item"><strong>Vehículo</strong><div th:text="${parada.vehiculoDescripcion}"></div></div>
+        <div class="detail-item"><strong>ID Destino</strong><div th:text="${parada.destinoId}"></div></div>
+        <div class="detail-item"><strong>Destino</strong><div th:text="${parada.destinoNombre}"></div></div>
+        <div class="detail-item"><strong>Ciudad</strong><div th:text="${parada.destinoCiudad}"></div></div>
+        <div class="detail-item"><strong>Fecha prevista</strong><div th:text="${parada.fechaPrevista}"></div></div>
+        <div class="detail-item"><strong>Fecha llegada</strong><div th:text="${parada.fechaLlegada != null} ? ${parada.fechaLlegada} : 'Pendiente'"></div></div>
+        <div class="detail-item"><strong>Observaciones</strong><div th:text="${parada.observaciones != null && !parada.observaciones.isEmpty()} ? ${parada.observaciones} : 'Sin observaciones'"></div></div>
     </div>
 </main>
 </body>

@@ -7,16 +7,44 @@
     <div class="header-row">
         <h1>Paradas</h1>
         <!-- TODO EXAMEN (Tarea 2): Enlazar a la ruta de alta de parada -->
-        <a class="btn" href="#">Nueva parada</a>
+        <a class="btn" th:href="@{/paradas/nueva}">Nueva parada</a>
     </div>
 
     <!-- TODO EXAMEN (Tarea 2): Mostrar el listado de paradas usando un DTO.
          Campos del DTO a mostrar: id, vehiculoMatricula, vehiculoDescripcion, destinoNombre, destinoCiudad,
          fechaPrevista, fechaLlegada.
          Incluir acción para ver detalle (enlace a /paradas/{id}). -->
-    <div class="panel">
-        <p class="muted">TODO: Implementar el listado de paradas.</p>
-    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Matrícula</th>
+            <th>Vehículo</th>
+            <th>Destino</th>
+            <th>Ciudad</th>
+            <th>Fecha prevista</th>
+            <th>Fecha llegada</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="p : ${paradas}">
+            <td th:text="${p.id}"></td>
+            <td th:text="${p.vehiculoMatricula}"></td>
+            <td th:text="${p.vehiculoDescripcion}"></td>
+            <td th:text="${p.destinoNombre}"></td>
+            <td th:text="${p.destinoCiudad}"></td>
+            <td th:text="${p.fechaPrevista}"></td>
+            <td th:text="${p.fechaLlegada != null} ? ${p.fechaLlegada} : 'Pendiente'"></td>
+            <td class="actions">
+                <a class="btn small secondary" th:href="@{'/paradas/' + ${p.id}}">Ver</a>
+            </td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(paradas)}">
+            <td colspan="8" class="muted">No hay paradas.</td>
+        </tr>
+        </tbody>
+    </table>
 </main>
 </body>
 </html>
