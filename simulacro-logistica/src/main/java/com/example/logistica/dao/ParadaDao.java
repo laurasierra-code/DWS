@@ -52,12 +52,13 @@ public class ParadaDao {
 
     public List<ParadaDTO> findAll() {
         // TODO EXAMEN (Tarea 2): Usa BASE_SELECT, dtoMapper y añade el ORDER BY adecuado.
-        return Collections.emptyList();
+        return jdbcTemplate.query(BASE_SELECT+ "ORDER BY p.fecha_prevista, p.id", dtoMapper);
     }
 
     public Optional<ParadaDTO> findById(int id) {
         // TODO EXAMEN (Tarea 2): Usa BASE_SELECT, dtoMapper y filtra por id.
-        return Optional.empty();
+        List<ParadaDTO> list = jdbcTemplate.query(BASE_SELECT + "WHERE p.id = ?", dtoMapper,id);
+        return list.stream().findFirst();
     }
 
     public void insert(Parada parada) {

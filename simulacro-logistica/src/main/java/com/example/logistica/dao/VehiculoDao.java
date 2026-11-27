@@ -1,5 +1,6 @@
 package com.example.logistica.dao;
 
+import com.example.logistica.dto.VehiculoListadoDTO;
 import com.example.logistica.model.Vehiculo;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -27,12 +28,30 @@ public class VehiculoDao {
         return v;
     };
 
-    // TODO EXAMEN (Tarea 1): Añadir método que devuelva la lista de vehículos con el número de destinos.
+    // TOD EXAMEN (Tarea 1): Añadir método que devuelva la lista de vehículos con el número de destinos.
     // Consulta orientativa:
     // SELECT v.id, v.matricula, v.marca, v.modelo, v.capacidad_kg, COUNT(d.id) AS numero_destinos
     // FROM vehiculo v LEFT JOIN destino d ON v.id = d.vehiculo_id
     // GROUP BY v.id, v.matricula, v.marca, v.modelo, v.capacidad_kg
     // ORDER BY v.matricula
+    private final RowMapper<VehiculoListadoDTO> dtoMapper = (rs, rowNum) -> {
+    VehiculoListadoDTO dto = new VehiculoListadoDTO();
+    dto.setId(rs.getInt("id"));
+    dto.setMatricula(rs.getString("matricula"));
+    dto.setMarca(rs.getString("marca"));
+    dto.setModelo(rs.getString("modelo"));
+    dto.setCapacidadKg(rs.getInt("capacidad_kg"));
+    dto.setNumeroDestinos(rs.getLong("numero_destinos"));
+    return dto;
+    };
+
+    public List<VehiculoListadoDTO> findAllConNumeroDestinos(){
+        String sql = "SELECT v.id, v.matricula, v.marca, v.modelo, v.capacidad_kg, COUNT(d.id) AS numero_destinos " +
+             "FROM vehiculo v LEFT JOIN destino d ON v.id = d.vehiculo_id " +
+             "GROUP BY v.id, v.matricula, v.marca, v.modelo, v.capacidad_kg " +
+             "ORDER BY v.matricula";
+             return jdbcTemplate.query(sql, dtoMapper);
+    }
 
     public List<Vehiculo> findAll() {
         return jdbcTemplate.query("SELECT * FROM vehiculo ORDER BY matricula", mapper);
