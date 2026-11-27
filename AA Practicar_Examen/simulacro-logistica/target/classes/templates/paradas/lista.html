@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Paradas')}"></head>
+<body>
+<nav th:replace="~{fragments :: nav}"></nav>
+<main class="container">
+    <div class="header-row">
+        <h1>Paradas</h1>
+        <!-- TODO EXAMEN (Tarea 2): Enlazar a la ruta de alta de parada -->
+        <a class="btn" href="@{/paradas/nueva}">Nueva parada</a>
+    </div>
+
+    <!-- TODO EXAMEN (Tarea 2): Mostrar el listado de paradas usando un DTO.
+         Campos del DTO a mostrar: id, vehiculoMatricula, vehiculoDescripcion, destinoNombre, destinoCiudad,
+         fechaPrevista, fechaLlegada.
+         Incluir acción para ver detalle (enlace a /paradas/{id}). -->
+    <div class="panel">
+        <p class="muted">TODO: Implementar el listado de paradas.</p>
+    </div>
+</main>
+</body>
+</html>

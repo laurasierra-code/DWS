@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Detalle vehículo')}"></head>
+<body>
+<nav th:replace="~{fragments :: nav}"></nav>
+<main class="container">
+    <div class="header-row">
+        <h1>Detalle del vehículo</h1>
+        <div class="actions">
+            <a class="btn" th:href="@{'/vehiculos/' + ${vehiculo.id} + '/editar'}">Editar</a>
+            <a class="btn secondary" th:href="@{/vehiculos}">Volver</a>
+        </div>
+    </div>
+    <div class="panel detail-grid">
+        <div class="detail-item"><strong>Matrícula</strong><div th:text="${vehiculo.matricula}"></div></div>
+        <div class="detail-item"><strong>Marca</strong><div th:text="${vehiculo.marca}"></div></div>
+        <div class="detail-item"><strong>Modelo</strong><div th:text="${vehiculo.modelo}"></div></div>
+        <div class="detail-item"><strong>Capacidad (kg)</strong><div th:text="${vehiculo.capacidadKg}"></div></div>
+    </div>
+</main>
+</body>
+</html>

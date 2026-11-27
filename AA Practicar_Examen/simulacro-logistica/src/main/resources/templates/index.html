@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Inicio - Logística')}"></head>
+<body>
+<nav th:replace="~{fragments :: nav}"></nav>
+<main class="container">
+    <section class="hero">
+        <h1>Bienvenido a Logística</h1>
+        <p>Gestiona vehículos, conductores, destinos y paradas desde una única aplicación.</p>
+    </section>
+    <section class="cards">
+        <a class="card" th:href="@{/vehiculos}"><h2>Vehículos</h2><p>Consulta y gestiona la flota de vehículos y sus destinos.</p></a>
+        <a class="card" th:href="@{/conductores}"><h2>Conductores</h2><p>Administra los conductores y el vehículo asignado.</p></a>
+        <a class="card" th:href="@{/destinos}"><h2>Destinos</h2><p>Gestiona los destinos asignados a los vehículos.</p></a>
+        <a class="card" th:href="@{/paradas}"><h2>Paradas</h2><p>Registra y consulta las paradas de vehículos en destinos.</p></a>
+    </section>
+</main>
+</body>
+</html>
