@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}">Logística</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</div>
+<nav th:fragment="nav" class="navbar">
+    <div class="container nav-inner">
+        <a class="brand" th:href="@{/}">Logística</a>
+        <ul class="nav-links">
+            <li><a th:href="@{/vehiculos}">Vehículos</a></li>
+            <li><a th:href="@{/conductores}">Conductores</a></li>
+            <li><a th:href="@{/destinos}">Destinos</a></li>
+            <li><a th:href="@{/paradas}">Paradas</a></li>
+        </ul>
+    </div>
+</nav>
+</body>
+</html>

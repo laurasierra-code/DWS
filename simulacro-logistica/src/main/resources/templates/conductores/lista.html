@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Conductores')}"></head>
+<body>
+<nav th:replace="~{fragments :: nav}"></nav>
+<main class="container">
+    <div class="header-row">
+        <h1>Conductores</h1>
+        <a class="btn" th:href="@{/conductores/nuevo}">Nuevo conductor</a>
+    </div>
+    <table class="table">
+        <thead><tr><th>DNI</th><th>Nombre</th><th>Teléfono</th><th>Vehículo</th><th>Acciones</th></tr></thead>
+        <tbody>
+        <tr th:each="c : ${conductores}">
+            <td th:text="${c.dni}"></td>
+            <td th:text="${c.nombreCompleto}"></td>
+            <td th:text="${c.telefono}"></td>
+            <td th:text="${c.vehiculoMatricula != null} ? ${c.vehiculoMatricula} : 'Sin vehículo'"></td>
+            <td class="actions">
+                <a class="btn small secondary" th:href="@{'/conductores/' + ${c.id}}">Ver</a>
+                <a class="btn small" th:href="@{'/conductores/' + ${c.id} + '/editar'}">Editar</a>
+                <form class="inline" th:action="@{'/conductores/' + ${c.id} + '/eliminar'}" method="post" onsubmit="return confirm('¿Eliminar conductor?');">
+                    <button class="btn small danger" type="submit">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(conductores)}"><td colspan="5" class="muted">No hay conductores.</td></tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Vehículo')}"></head>
+<body>
+<nav th:replace="~{fragments :: nav}"></nav>
+<main class="container">
+    <h1 th:text="${vehiculo.id == null} ? 'Nuevo vehículo' : 'Editar vehículo'"></h1>
+    <div class="panel">
+        <form th:action="${vehiculo.id == null} ? @{/vehiculos} : @{'/vehiculos/' + ${vehiculo.id}}" method="post" th:object="${vehiculo}">
+            <div class="form-grid">
+                <div><label>Matrícula</label><input type="text" th:field="*{matricula}" required></div>
+                <div><label>Marca</label><input type="text" th:field="*{marca}" required></div>
+                <div><label>Modelo</label><input type="text" th:field="*{modelo}" required></div>
+                <div><label>Capacidad (kg)</label><input type="number" th:field="*{capacidadKg}" min="0" required></div>
+            </div>
+            <div class="form-actions">
+                <button class="btn" type="submit">Guardar</button>
+                <a class="btn secondary" th:href="@{/vehiculos}">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</main>
+</body>
+</html>

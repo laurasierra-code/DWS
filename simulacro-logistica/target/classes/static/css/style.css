@@ -1,0 +1,30 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #f5f7fb; color: #222; }
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+.navbar { background: #1f4d3a; color: #fff; }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.brand { color: #fff; text-decoration: none; font-weight: bold; font-size: 1.2rem; }
+.nav-links { list-style: none; display: flex; gap: 16px; margin: 0; padding: 0; flex-wrap: wrap; }
+.nav-links a { color: #fff; text-decoration: none; }
+.hero { background: #fff; padding: 30px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 6px rgba(0,0,0,.08); }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.card { background: #fff; padding: 20px; border-radius: 8px; text-decoration: none; color: inherit; box-shadow: 0 2px 6px rgba(0,0,0,.08); }
+.card:hover { transform: translateY(-2px); }
+.header-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+.table { width: 100%; border-collapse: collapse; background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,.08); }
+.table th, .table td { padding: 10px 12px; border-bottom: 1px solid #e5e7eb; text-align: left; }
+.table th { background: #eef2f7; }
+.actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn, button.btn { display: inline-block; padding: 8px 12px; border-radius: 4px; border: none; background: #1f4d3a; color: #fff; text-decoration: none; cursor: pointer; font-size: 0.95rem; }
+.btn.secondary { background: #6b7280; }
+.btn.danger { background: #b91c1c; }
+.btn.small { padding: 5px 8px; font-size: 0.85rem; }
+form.inline { display: inline; }
+.panel { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,.08); margin-bottom: 20px; }
+.form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+label { display: block; margin-bottom: 4px; font-weight: 600; }
+input, select { width: 100%; padding: 8px; border: 1px solid #cbd5e1; border-radius: 4px; }
+.form-actions { margin-top: 16px; display: flex; gap: 10px; }
+.detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+.detail-item { background: #f8fafc; padding: 10px; border-radius: 4px; }
+.muted { color: #6b7280; }

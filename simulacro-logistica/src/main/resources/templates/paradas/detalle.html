@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Detalle parada')}"></head>
+<body>
+<nav th:replace="~{fragments :: nav}"></nav>
+<main class="container">
+    <div class="header-row">
+        <h1>Detalle de la parada</h1>
+        <div class="actions">
+            <a class="btn secondary" th:href="@{/paradas}">Volver</a>
+        </div>
+    </div>
+
+    <!-- TODO EXAMEN (Tarea 2): Mostrar la información del DTO de parada mediante Thymeleaf.
+         Campos del DTO a exponer: id, vehiculoId, vehiculoMatricula, vehiculoDescripcion,
+         destinoId, destinoNombre, destinoCiudad, fechaPrevista, fechaLlegada, observaciones. -->
+    <div class="panel">
+        <p class="muted">TODO: Implementar el detalle de parada.</p>
+    </div>
+</main>
+</body>
+</html>
